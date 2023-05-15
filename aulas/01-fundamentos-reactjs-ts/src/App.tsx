@@ -1,9 +1,10 @@
-import { Header } from "./components/Header/Header"
-import { Sidebar } from "./components/Sidebar/Sidebar"
-import { Posts } from "./components/Posts/Posts"
+import { Header } from "./components/Header/Header.tsx";
+import { Sidebar } from "./components/Sidebar/Sidebar.tsx";
+import { Posts } from "./components/Posts/Posts.tsx";
 
-import styles from './App.module.css'
-import './main.css'
+import styles from './App.module.css';
+import './main.css';
+
 
 const posts = [
   {
@@ -34,9 +35,9 @@ const posts = [
     ],
     publishedAt: new Date('2023-05-14 13:22:53')
   },
-]
+];
 
-function App() {
+export function App() {
 
   return (
     <div>
@@ -60,7 +61,6 @@ function App() {
         </main>
       </div>
     </div>
-  )
-}
-
-export default App
+  );
+  
+};

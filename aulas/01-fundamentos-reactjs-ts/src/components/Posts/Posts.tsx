@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
@@ -7,7 +7,19 @@ import { Avatar } from "../Avatar/Avatar";
 import { Comment } from "../Comment/Comment";
 import styles from "./Posts.module.css";
 
-export function Posts({author, publishedAt}) {
+interface Author {
+  name: string
+  role: string
+  avatarUrl: string
+};
+
+interface PostProps {
+  author: Author
+  publishedAt: Date
+  content?: {}[]
+}
+
+export function Posts({author, publishedAt}: PostProps) {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([
     'Muito bom, parabéns 👏👏',
@@ -17,17 +29,17 @@ export function Posts({author, publishedAt}) {
   const dateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {locale: ptBR},);
   const dateRelativeNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
 
-  function handleAddComment(){
+  function handleAddComment(event: FormEvent){
     event.preventDefault();
     setComments([...comments, comment]);
     setComment('');
   };
 
-  function handleWriteComment(){
+  function handleWriteComment(event: ChangeEvent<HTMLTextAreaElement>){
     setComment(event.target.value);
   };
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: String) {
     const commentsWithoutCommentToDelete = comments.filter(
       comment => comment != commentToDelete
     );
