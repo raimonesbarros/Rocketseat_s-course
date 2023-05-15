@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --white: #ffffff;
+  --g100: #e1e1e6;
+  --g300: #c4c4cc;
+  --g400: #8d8d99;
+  --g600: #323238;
+  --g700: #29292e;
+  --g800: #202024;
+  --g900: #121214;
+
+  --gr300: #00B37E;
+  --gr500: #00875f;
+
+  --r500: #F75A68;
+}
+
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--gr500);
+}
+
+body{
+  background-color: var(--g900);
+  color: var(--g300);
+  --webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
