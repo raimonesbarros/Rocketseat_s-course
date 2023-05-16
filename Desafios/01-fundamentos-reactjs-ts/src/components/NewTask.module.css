@@ -1,0 +1,52 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  margin: -1.6875rem auto 0;
+}
+
+.task input {
+  background-color: var(--gray500);
+  color: var(--gray100);
+
+  width: 100%;
+  padding: 1rem;
+  
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--gray700);
+
+  font-size: 1rem;
+}
+
+.task input:focus {
+  outline: 1px solid var(--purple-dark);
+}
+
+.task button {
+  background-color: var(--blue-dark);
+  color: var(--gray100);
+
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.225rem;
+}
+
+.task button:hover {
+  background: var(--blue);
+}
+
+.task button img{
+  width: 1rem;
+}
