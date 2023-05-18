@@ -49,10 +49,10 @@
 }
 
 .task:has(:checked) {
-  opacity: .5;
+  opacity: 0.5;
 }
 
-.task:has(:checked) p{
+.task:has(:checked) p {
   text-decoration: line-through;
 }
 
