@@ -31,12 +31,10 @@ export function App() {
   }
 
   function setOutTasks(value: TaskType[]) {
-    setTasks(value)
+    setTasks(value);
   }
 
-
   const isValidTask = writeNewTask.length < 1;
-
 
   return (
     <div className={styles.app}>
@@ -64,7 +62,7 @@ export function App() {
             <img src="./src/assets/plus.svg" />
           </button>
         </div>
-        <TaskList tasks={tasks} onSetTasks={setOutTasks}/>
+        <TaskList tasks={tasks} onSetTasks={setOutTasks} />
       </main>
     </div>
   );
