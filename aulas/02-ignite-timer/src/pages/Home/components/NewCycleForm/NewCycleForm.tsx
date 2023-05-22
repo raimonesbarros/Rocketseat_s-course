@@ -4,12 +4,21 @@ import {
   MinutesAmountInput,
   TaskInput,
 } from "./NewCycleForm.style";
-import { CyclesContext } from "../../Home";
+import { CyclesContext } from "../../../../contexts/CycleContext";
 import { useFormContext } from "react-hook-form";
 
 export function NewCycleForm() {
+  const { cycles } = useContext(CyclesContext);
   const { activeCycle } = useContext(CyclesContext);
   const { register } = useFormContext();
+
+  function showOption(position: number) {
+    let taskSugestion = "";
+    cycles[position]
+      ? (taskSugestion = cycles[position].task)
+      : (taskSugestion = `Projeto ${position + 1}`);
+    return taskSugestion;
+  }
 
   return (
     <FormContainer>
@@ -23,10 +32,10 @@ export function NewCycleForm() {
       />
 
       <datalist id="task-sugestions">
-        <option value="Projeto 1" />
-        <option value="Projeto 2" />
-        <option value="Projeto 3" />
-        <option value="Projeto 4" />
+        <option value={showOption(0)} />
+        <option value={showOption(1)} />
+        <option value={showOption(2)} />
+        <option value={showOption(3)} />
       </datalist>
 
       <label htmlFor="minutesAmount">durante</label>
