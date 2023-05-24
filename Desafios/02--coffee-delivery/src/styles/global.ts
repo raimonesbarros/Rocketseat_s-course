@@ -32,4 +32,12 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.3;
   }
 
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.secondary};
+    border-radius: 50px;
+  }
 `;
