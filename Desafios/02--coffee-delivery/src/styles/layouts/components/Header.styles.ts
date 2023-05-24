@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const HeaderStyleContainer = styled.header`
+export const HeaderStyles = styled.header`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -10,6 +10,9 @@ export const HeaderStyleContainer = styled.header`
   nav {
     width: 100%;
     max-width: 70rem;
+
+    padding: 0 0.5rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;

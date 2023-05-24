@@ -1,10 +1,10 @@
 import { MapPin, ShoppingCart } from "@phosphor-icons/react";
 import logo from "../../../assets/Logo.svg";
-import { HeaderStyleContainer } from "./Header.styles";
+import { HeaderStyles } from "./Header.styles";
 
 export function Header() {
   return (
-    <HeaderStyleContainer>
+    <HeaderStyles>
       <nav>
         <img src={logo} />
         <div className="actions">
@@ -16,6 +16,6 @@ export function Header() {
           </span>
         </div>
       </nav>
-    </HeaderStyleContainer>
+    </HeaderStyles>
   );
 }
