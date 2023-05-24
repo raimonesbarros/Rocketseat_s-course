@@ -1,6 +1,10 @@
 import { styled } from "styled-components";
 
 export const HeaderStyles = styled.header`
+  position: sticky;
+  top: 0;
+  background: ${props => props.theme.base100};
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -66,6 +70,7 @@ export const HeaderStyles = styled.header`
 
       background: ${(props) => props.theme.secondary_light};
       color: ${(props) => props.theme.secondary_dark};
+      cursor: pointer;
     }
   }
 `;

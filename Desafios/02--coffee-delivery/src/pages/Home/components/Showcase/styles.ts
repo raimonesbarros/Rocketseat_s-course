@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const ShowcaseStyles = styled.div`
   width: 100%;
+  background-image: url(./src/assets/Background.svg);
 
   .container {
     max-width: 70rem;
