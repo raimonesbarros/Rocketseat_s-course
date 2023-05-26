@@ -1,4 +1,5 @@
 import { DeliveryAddress } from "./components/Address";
+import { OrderCard } from "./components/OrderCard";
 import { FormOfPayment } from "./components/Payment";
 import { CheckoutStyles } from "./styles";
 
@@ -13,6 +14,7 @@ export function Checkout() {
         </div>
         <div className="orderCard">
           <h2>Cafés selecionados</h2>
+          <OrderCard />
         </div>
       </div>
     </CheckoutStyles>
