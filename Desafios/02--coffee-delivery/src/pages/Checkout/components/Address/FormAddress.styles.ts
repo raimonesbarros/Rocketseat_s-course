@@ -10,6 +10,7 @@ export const FormAddressStyles = styled.div`
 
     input {
       width: 100%;
+      height: 2.625rem;
 
       padding: 0.75rem;
 
@@ -18,6 +19,8 @@ export const FormAddressStyles = styled.div`
 
       background: ${(props) => props.theme.base300};
       color: ${(props) => props.theme.base700};
+
+      font-size: 0.875rem;
 
       &::placeholder {
         font-size: 0.875rem;

@@ -16,6 +16,22 @@ export const CheckoutStyles = styled.div`
     .delivery {
       width: 57.14%;
       max-width: 40rem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    h2 {
+      font-family: "Baloo 2", cursive;
+      font-weight: 700;
+      font-size: 1.125rem;
+
+      display: flex;
+      align-items: center;
+
+      color: ${(props) => props.theme.base800};
+      margin-bottom: 0.25rem;
     }
 
     .orderCard {
@@ -23,16 +39,5 @@ export const CheckoutStyles = styled.div`
       max-width: 28rem;
     }
 
-    h2 {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 700;
-      font-size: 1.125rem;
-
-      display: flex;
-      align-items: center;
-
-      color: ${props => props.theme.base800};
-      margin-bottom: 1rem;
-    }
   }
 `;
