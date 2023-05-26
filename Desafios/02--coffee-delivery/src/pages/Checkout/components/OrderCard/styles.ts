@@ -40,6 +40,11 @@ export const OrderCardStyles = styled.div`
     }
   }
 
+  .link {
+    width: 100%;
+    text-decoration: none;
+  }
+
   button[type="submit"] {
     width: 100%;
 
@@ -60,5 +65,7 @@ export const OrderCardStyles = styled.div`
 
     background: ${props => props.theme.secondary};
     color: ${props => props.theme.white};
+
+    cursor: pointer;
 }
 `

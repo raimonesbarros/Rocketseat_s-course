@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Order } from "./Order";
 import { OrderCardStyles } from "./styles";
 
@@ -18,7 +19,9 @@ export function OrderCard() {
           <strong>R$ 23,30</strong>
         </p>
       </div>
-      <button type="submit">Confirmar pedido</button>
+      <NavLink className="link" to={"/success"}>
+        <button type="submit">Confirmar pedido</button>
+      </NavLink>
     </OrderCardStyles>
   );
 }
