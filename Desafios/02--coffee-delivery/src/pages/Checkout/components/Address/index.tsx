@@ -1,5 +1,6 @@
 import { MapPinLine } from "@phosphor-icons/react";
 import { DeliveryAddressStyles } from "./styles";
+import { FormAddress } from "./FormAddress";
 
 export function DeliveryAddress() {
   return (
@@ -11,7 +12,7 @@ export function DeliveryAddress() {
           <p>Informe o endereço onde deseja receber seu pedido</p>
         </div>
       </div>
-      <DeliveryAddress />
+      <FormAddress />
     </DeliveryAddressStyles>
   );
 }
