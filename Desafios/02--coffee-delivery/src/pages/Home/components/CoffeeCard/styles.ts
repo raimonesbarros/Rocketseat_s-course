@@ -87,7 +87,7 @@ export const CoffeeCardStyles = styled.div`
         justify-content: center;
         align-items: center;
         padding: 0.5rem;
-        gap: 0.25rem;
+        gap: 0.4rem;
 
         background: ${(props) => props.theme.base400};
         border-radius: 6px;
@@ -102,7 +102,6 @@ export const CoffeeCardStyles = styled.div`
         }
 
         .qtty {
-          text-align: center;
           color: ${(props) => props.theme.base900};
         }
       }

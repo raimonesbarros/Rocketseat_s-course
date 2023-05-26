@@ -13,13 +13,20 @@ export const CheckoutStyles = styled.div`
     justify-content: space-between;
     gap: 2rem;
 
+    .delivery, .orderCard {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
     .delivery {
       width: 57.14%;
       max-width: 40rem;
+    }
 
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+    .orderCard {
+      width: 40%;
+      max-width: 28rem;
     }
 
     h2 {
@@ -32,11 +39,6 @@ export const CheckoutStyles = styled.div`
 
       color: ${(props) => props.theme.base800};
       margin-bottom: 0.25rem;
-    }
-
-    .orderCard {
-      width: 40%;
-      max-width: 28rem;
     }
 
   }
