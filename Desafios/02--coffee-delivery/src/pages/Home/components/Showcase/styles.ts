@@ -17,16 +17,16 @@ export const ShowcaseStyles = styled.div`
   }
 
   .description h1 {
-    font-family: 'Baloo 2', cursive;
+    font-family: "Baloo 2", cursive;
     font-weight: 800;
     font-size: 3rem;
-    color: ${props => props.theme.base900};
+    color: ${(props) => props.theme.base900};
     align-self: stretch;
   }
 
   .subtitle {
     font-size: 1.25rem;
-    color: ${props => props.theme.base800};
+    color: ${(props) => props.theme.base800};
     font-stretch: 100;
     align-self: stretch;
   }
@@ -55,22 +55,21 @@ export const ShowcaseStyles = styled.div`
         align-items: center;
 
         border-radius: 50%;
-        color: ${props => props.theme.base100};
+        color: ${(props) => props.theme.base100};
       }
 
       .cart {
-        background: ${props => props.theme.secondary_dark};
+        background: ${(props) => props.theme.secondary_dark};
       }
       .package {
-        background: ${props => props.theme.base700};
+        background: ${(props) => props.theme.base700};
       }
       .timer {
-        background: ${props => props.theme.secondary};
+        background: ${(props) => props.theme.secondary};
       }
       .coffee {
-        background: ${props => props.theme.primary};
+        background: ${(props) => props.theme.primary};
       }
     }
   }
-
 `;

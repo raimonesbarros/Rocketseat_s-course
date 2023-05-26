@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const HeaderStyles = styled.header`
   position: sticky;
   top: 0;
-  background: ${props => props.theme.base100};
+  background: ${(props) => props.theme.base100};
 
   width: 100%;
   display: flex;

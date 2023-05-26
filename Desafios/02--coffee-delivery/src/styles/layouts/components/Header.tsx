@@ -7,14 +7,14 @@ export function Header() {
   return (
     <HeaderStyles>
       <nav>
-        <NavLink to={'/'}>
+        <NavLink to={"/"}>
           <img src={logo} />
         </NavLink>
         <div className="actions">
           <span className="location">
             <MapPin size={22} weight="fill" className="mapPin" /> Araguaína, TO
           </span>
-          <NavLink to={'/checkout'} title="Meu carrinho">
+          <NavLink to={"/checkout"} title="Meu carrinho">
             <span className="cart">
               <ShoppingCart size={22} weight="fill" />
             </span>

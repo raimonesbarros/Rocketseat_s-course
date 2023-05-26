@@ -13,7 +13,8 @@ export const CheckoutStyles = styled.div`
     justify-content: space-between;
     gap: 2rem;
 
-    .delivery, .orderCard {
+    .delivery,
+    .orderCard {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -40,6 +41,5 @@ export const CheckoutStyles = styled.div`
       color: ${(props) => props.theme.base800};
       margin-bottom: 0.25rem;
     }
-
   }
 `;

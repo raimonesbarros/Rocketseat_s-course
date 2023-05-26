@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${props => props.theme.secondary};
+    background-color: ${(props) => props.theme.secondary};
     border-radius: 50px;
   }
 `;

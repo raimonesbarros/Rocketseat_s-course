@@ -7,7 +7,7 @@ export const OrderCardStyles = styled.div`
   padding: 2.5rem;
   gap: 1.5rem;
 
-  background: ${props => props.theme.base200};
+  background: ${(props) => props.theme.base200};
   border-radius: 0.375rem 2.75rem;
 
   .total {
@@ -26,7 +26,7 @@ export const OrderCardStyles = styled.div`
       align-items: center;
 
       font-size: 0.875rem;
-      color: ${props => props.theme.base700};
+      color: ${(props) => props.theme.base700};
     }
 
     span {
@@ -36,7 +36,7 @@ export const OrderCardStyles = styled.div`
     strong {
       font-weight: 700;
       font-size: 1.25rem;
-      color: ${props => props.theme.base800};
+      color: ${(props) => props.theme.base800};
     }
   }
 
@@ -63,9 +63,9 @@ export const OrderCardStyles = styled.div`
     line-height: 1.6;
     text-transform: uppercase;
 
-    background: ${props => props.theme.secondary};
-    color: ${props => props.theme.white};
+    background: ${(props) => props.theme.secondary};
+    color: ${(props) => props.theme.white};
 
     cursor: pointer;
-}
-`
+  }
+`;

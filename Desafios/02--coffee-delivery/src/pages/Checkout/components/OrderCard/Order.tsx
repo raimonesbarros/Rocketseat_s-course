@@ -1,12 +1,12 @@
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
-import Expresso from "../../../../assets/coffee/Expresso.svg"
+import Expresso from "../../../../assets/coffee/Expresso.svg";
 import { OrderStyles } from "./Order.styles";
 
-export function Order(){
-  return(
+export function Order() {
+  return (
     <OrderStyles>
       <div className="info">
-        <img src={Expresso}/>
+        <img src={Expresso} />
         <div className="details">
           <p>Expresso Tradicional</p>
           <div className="actions">
@@ -15,11 +15,13 @@ export function Order(){
               <p className="qtty"> 1 </p>
               <Plus className="plus" size={14} weight="bold" />
             </div>
-            <button><Trash size={16}/> Remover</button>
+            <button>
+              <Trash size={16} /> Remover
+            </button>
           </div>
         </div>
       </div>
       <p>R$ 9,90</p>
     </OrderStyles>
-  )
+  );
 }
