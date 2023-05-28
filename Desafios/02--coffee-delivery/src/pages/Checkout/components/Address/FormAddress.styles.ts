@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const FormAddressStyles = styled.div`
+export const FormAddressContainer = styled.div`
   form {
     width: 100%;
 
@@ -50,15 +50,10 @@ export const FormAddressStyles = styled.div`
       width: 10.714%;
     }
 
-    .row3,
-    .row4 {
+    > div {
       width: 100%;
       display: flex;
       column-gap: 0.5rem;
-    }
-
-    .row3 {
-      grid-template-columns: auto auto;
     }
   }
 `;

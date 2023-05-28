@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const OrderCardStyles = styled.div`
+export const OrderCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,37 +10,7 @@ export const OrderCardStyles = styled.div`
   background: ${(props) => props.theme.base200};
   border-radius: 0.375rem 2.75rem;
 
-  .total {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    align-self: stretch;
-    gap: 0.75rem;
-
-    p {
-      width: 100%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      font-size: 0.875rem;
-      color: ${(props) => props.theme.base700};
-    }
-
-    span {
-      font-size: 1rem;
-    }
-
-    strong {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: ${(props) => props.theme.base800};
-    }
-  }
-
-  .link {
+  a {
     width: 100%;
     text-decoration: none;
   }
@@ -67,5 +37,35 @@ export const OrderCardStyles = styled.div`
     color: ${(props) => props.theme.white};
 
     cursor: pointer;
+  }
+`;
+
+export const OrderCardTotal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 0.75rem;
+
+  p {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 0.875rem;
+    color: ${(props) => props.theme.base700};
+  }
+
+  span {
+    font-size: 1rem;
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: ${(props) => props.theme.base800};
   }
 `;

@@ -1,46 +1,51 @@
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import dummy from "../../../../assets/Imagem.svg";
-import { ShowcaseStyles } from "./styles";
+import {
+  ShowcaseBenefit,
+  ShowcaseBenefits,
+  ShowcaseContainer,
+  ShowcaseDescription,
+} from "./styles";
 
 export function Showcase() {
   return (
-    <ShowcaseStyles>
-      <div className="container">
-        <div className="description">
+    <ShowcaseContainer>
+      <div>
+        <ShowcaseDescription>
           <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p className="subtitle">
+          <p>
             Com o coffee Delivery você recebe seu café onde estiver, a qualquer
             hora
           </p>
-          <div className="benefits">
-            <p>
+          <ShowcaseBenefits>
+            <ShowcaseBenefit>
               <span className="cart">
                 <ShoppingCart size={16} weight="fill" />
               </span>
               Compra simples e segura
-            </p>
-            <p>
+            </ShowcaseBenefit>
+            <ShowcaseBenefit>
               <span className="package">
                 <Package size={16} weight="fill" />
               </span>
               Embalagem mantém o café intacto
-            </p>
-            <p>
+            </ShowcaseBenefit>
+            <ShowcaseBenefit>
               <span className="timer">
                 <Timer size={16} weight="fill" />
               </span>
               Entrega rápida e rastreada
-            </p>
-            <p>
+            </ShowcaseBenefit>
+            <ShowcaseBenefit>
               <span className="coffee">
                 <Coffee size={16} weight="fill" />
               </span>
               O café chega fresquinho até você
-            </p>
-          </div>
-        </div>
+            </ShowcaseBenefit>
+          </ShowcaseBenefits>
+        </ShowcaseDescription>
         <img src={dummy} />
       </div>
-    </ShowcaseStyles>
+    </ShowcaseContainer>
   );
 }

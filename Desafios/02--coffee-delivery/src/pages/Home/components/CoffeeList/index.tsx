@@ -1,11 +1,15 @@
 import { CoffeeCard } from "../CoffeeCard";
-import { CoffeeListStyles } from "./styles";
+import {
+  CoffeeListContainer,
+  CoffeeListHeader,
+  CoffeeListContent,
+} from "./styles";
 
 export function CoffeeList() {
   return (
-    <CoffeeListStyles>
-      <div className="container">
-        <div className="header">
+    <CoffeeListContainer>
+      <div>
+        <CoffeeListHeader>
           <h2>Nossos cafés</h2>
           <nav className="filter">
             <li>TRADICIONAL</li>
@@ -14,14 +18,14 @@ export function CoffeeList() {
             <li>ALCOÓLICO</li>
             <li>GELADO</li>
           </nav>
-        </div>
-        <div className="coffeeList">
+        </CoffeeListHeader>
+        <CoffeeListContent>
           <CoffeeCard />
           <CoffeeCard />
           <CoffeeCard />
           <CoffeeCard />
-        </div>
+        </CoffeeListContent>
       </div>
-    </CoffeeListStyles>
+    </CoffeeListContainer>
   );
 }

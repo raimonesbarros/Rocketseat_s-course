@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const FormOfPaymentStyles = styled.div`
+export const FormOfPaymentContainer = styled.div`
   width: 100%;
 
   padding: 2.5rem;
@@ -11,12 +11,12 @@ export const FormOfPaymentStyles = styled.div`
   background: ${(props) => props.theme.base200};
   border-radius: 6px;
 
-  .header {
+  > div {
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
 
-    .currencyDollar {
+    > svg {
       color: ${(props) => props.theme.primary};
     }
 
@@ -29,9 +29,13 @@ export const FormOfPaymentStyles = styled.div`
       font-size: 0.875rem;
     }
   }
+`;
 
-  form > label {
+export const PaymentTypeSelect = styled.form`
+  > label {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 0.75rem;
 
     label {
@@ -55,7 +59,7 @@ export const FormOfPaymentStyles = styled.div`
 
       transition: 0.3s;
 
-      .icon {
+      svg {
         color: ${(props) => props.theme.primary};
       }
 

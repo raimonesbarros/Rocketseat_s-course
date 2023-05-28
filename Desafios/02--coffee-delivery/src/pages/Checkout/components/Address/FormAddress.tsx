@@ -1,8 +1,8 @@
-import { FormAddressStyles } from "./FormAddress.styles";
+import { FormAddressContainer } from "./FormAddress.styles";
 
 export function FormAddress() {
   return (
-    <FormAddressStyles>
+    <FormAddressContainer>
       <form action="">
         <label htmlFor="cep">
           <input type="text" id="cep" placeholder="CEP" />
@@ -33,6 +33,6 @@ export function FormAddress() {
           </label>
         </div>
       </form>
-    </FormAddressStyles>
+    </FormAddressContainer>
   );
 }

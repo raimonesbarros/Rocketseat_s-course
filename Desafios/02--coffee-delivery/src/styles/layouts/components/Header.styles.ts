@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const HeaderStyles = styled.header`
+export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   background: ${(props) => props.theme.base100};
@@ -25,52 +25,48 @@ export const HeaderStyles = styled.header`
       height: 2.5rem;
     }
   }
+`;
 
-  .actions {
-    width: 12.0625rem;
-    height: 2.375rem;
+export const HeaderActions = styled.div`
+  width: 12.0625rem;
+  height: 2.375rem;
 
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+`;
 
-    .location {
-      width: 8.9375rem;
-      height: 100%;
+export const Location = styled.span`
+  width: 8.9375rem;
+  height: 100%;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-      padding: 0.5rem;
-      gap: 0.25rem;
+  padding: 0.5rem;
+  gap: 0.25rem;
 
-      border-radius: 6px;
+  border-radius: 6px;
 
-      background: ${(props) => props.theme.primary_light};
-      color: ${(props) => props.theme.primary_dark};
+  background: ${(props) => props.theme.primary_light};
+  color: ${(props) => props.theme.primary_dark};
 
-      font-size: 0.875rem;
+  font-size: 0.875rem;
+`;
 
-      .mapPin {
-        color: ${(props) => props.theme.primary_dark};
-      }
-    }
+export const CartHeader = styled.span`
+  width: 2.375rem;
+  height: 2.375rem;
 
-    .cart {
-      width: 2.375rem;
-      height: 2.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
 
-      padding: 0.5rem;
-      border-radius: 6px;
-
-      background: ${(props) => props.theme.secondary_light};
-      color: ${(props) => props.theme.secondary_dark};
-      cursor: pointer;
-    }
-  }
+  background: ${(props) => props.theme.secondary_light};
+  color: ${(props) => props.theme.secondary_dark};
+  cursor: pointer;
 `;

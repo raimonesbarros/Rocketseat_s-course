@@ -1,18 +1,23 @@
-import { SuccessStyles } from "./styles";
+import {
+  SuccessContainer,
+  ViewerDeliveryInfo,
+  BorderGradient,
+  InfoCardDelivery,
+} from "./styles";
 import illustration from "../../assets/Illustration.svg";
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 
 export function Success() {
   return (
-    <SuccessStyles>
-      <div className="container">
+    <SuccessContainer>
+      <div>
         <div className="message">
           <h2>Uhu! Pedido confirmado</h2>
           <p>Agora é só aguardar que logo o café chegará até você</p>
         </div>
-        <div className="viewerDeliveryInfo">
-          <div className="border">
-            <div className="infoCard">
+        <ViewerDeliveryInfo>
+          <BorderGradient>
+            <InfoCardDelivery>
               <div className="addressInfo">
                 <span>
                   <MapPin size={16} weight="fill" />
@@ -44,11 +49,11 @@ export function Success() {
                   </p>
                 </p>
               </div>
-            </div>
-          </div>
+            </InfoCardDelivery>
+          </BorderGradient>
           <img src={illustration} />
-        </div>
+        </ViewerDeliveryInfo>
       </div>
-    </SuccessStyles>
+    </SuccessContainer>
   );
 }

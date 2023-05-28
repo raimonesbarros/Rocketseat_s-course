@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { Order } from "./Order";
-import { OrderCardStyles } from "./styles";
+import { OrderCardContainer, OrderCardTotal } from "./styles";
 
 export function OrderCard() {
   return (
-    <OrderCardStyles>
+    <OrderCardContainer>
       <Order />
       <Order />
-      <div className="total">
+      <OrderCardTotal>
         <p>
           Total de itens <span>R$ 19,80</span>
         </p>
@@ -18,10 +18,10 @@ export function OrderCard() {
           <strong>Total</strong>
           <strong>R$ 23,30</strong>
         </p>
-      </div>
+      </OrderCardTotal>
       <NavLink className="link" to={"/success"}>
         <button type="submit">Confirmar pedido</button>
       </NavLink>
-    </OrderCardStyles>
+    </OrderCardContainer>
   );
 }

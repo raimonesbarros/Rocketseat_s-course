@@ -1,11 +1,11 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from "@phosphor-icons/react";
-import { FormOfPaymentStyles } from "./styles";
+import { FormOfPaymentContainer, PaymentTypeSelect } from "./styles";
 
 export function FormOfPayment() {
   return (
-    <FormOfPaymentStyles>
-      <div className="header">
-        <CurrencyDollar className="currencyDollar" size={22} />
+    <FormOfPaymentContainer>
+      <div>
+        <CurrencyDollar size={22} />
         <div>
           <h3>Pagamento</h3>
           <p>
@@ -13,22 +13,22 @@ export function FormOfPayment() {
           </p>
         </div>
       </div>
-      <form action="">
+      <PaymentTypeSelect>
         <label htmlFor="payment">
           <label htmlFor="creditCard">
-            <CreditCard size={16} className="icon" /> Cartão de Crédito
+            <CreditCard size={16} /> Cartão de Crédito
             <input type="radio" name="payment" id="creditCard" />
           </label>
           <label htmlFor="debitCard">
-            <Bank size={16} className="icon" /> Cartão de Débito
+            <Bank size={16} /> Cartão de Débito
             <input type="radio" name="payment" id="debitCard" />
           </label>
           <label htmlFor="cash">
-            <Money size={16} className="icon" /> Dinheiro
+            <Money size={16} /> Dinheiro
             <input type="radio" name="payment" id="cash" />
           </label>
         </label>
-      </form>
-    </FormOfPaymentStyles>
+      </PaymentTypeSelect>
+    </FormOfPaymentContainer>
   );
 }
