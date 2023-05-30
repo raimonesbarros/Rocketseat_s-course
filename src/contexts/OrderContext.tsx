@@ -6,6 +6,7 @@ import { produce } from "immer";
 interface OrderContextType {
   cart: CoffeeCardType[];
   addToCart: (name: string, qtty: number) => void;
+  setCart: React.Dispatch<React.SetStateAction<CoffeeCardType[]>>;
 }
 
 export interface CartType {
@@ -32,15 +33,18 @@ export function OrderContextProvider({ children }: OrderContextProps) {
     const newOrder = {
       img: coffeeList[index].img,
       name: coffeeList[index].name,
-      price: qtty * coffeeList[index].price,
+      price: coffeeList[index].price,
       qtty: qtty,
     };
 
-    setCart(
-      produce((draft) => {
-        draft.push(newOrder);
-      })
-    );
+    const orderExist = cart.find((item) => item.name == name);
+    if (!orderExist) {
+      setCart(
+        produce((draft) => {
+          draft.push(newOrder);
+        })
+      );
+    }
   }
 
   return (
@@ -48,6 +52,7 @@ export function OrderContextProvider({ children }: OrderContextProps) {
       value={{
         cart,
         addToCart,
+        setCart,
       }}
     >
       {children}

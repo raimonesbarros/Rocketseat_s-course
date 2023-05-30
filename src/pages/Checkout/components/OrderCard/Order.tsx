@@ -1,12 +1,44 @@
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
-import { CartType } from "../../../../contexts/OrderContext";
+import { CartType, OrderContext } from "../../../../contexts/OrderContext";
 import {
   OrderContainer,
   OrderActions,
   OrderRemoveButton,
 } from "./Order.styles";
+import { useContext } from "react";
+import { produce } from "immer";
 
-export function Order({ img, name, price, qtty }: CartType) {
+interface OrderType extends CartType {
+  onRemoveOrder: (name: string | undefined) => void;
+}
+
+export function Order({
+  img,
+  name,
+  price = 9.9,
+  qtty = 1,
+  onRemoveOrder,
+}: OrderType) {
+  const { cart, setCart } = useContext(OrderContext);
+
+  function handleChangeQtty(action: string, name: string | undefined) {
+    const index = cart.findIndex((item) => item.name == name);
+    setCart(
+      produce((draft) => {
+        if (action == "plus") {
+          draft[index].qtty = qtty + 1;
+        }
+        if (action == "minus" && Number(draft[index].qtty) > 1) {
+          draft[index].qtty = qtty - 1;
+        }
+      })
+    );
+  }
+
+  function handleRemoveOrder(name: string | undefined) {
+    onRemoveOrder(name);
+  }
+
   return (
     <OrderContainer>
       <div>
@@ -15,11 +47,19 @@ export function Order({ img, name, price, qtty }: CartType) {
           <p>{name}</p>
           <OrderActions>
             <div>
-              <Minus size={14} weight="bold" />
+              <Minus
+                size={14}
+                weight="bold"
+                onClick={() => handleChangeQtty("minus", name)}
+              />
               <p> {qtty} </p>
-              <Plus size={14} weight="bold" />
+              <Plus
+                size={14}
+                weight="bold"
+                onClick={() => handleChangeQtty("plus", name)}
+              />
             </div>
-            <OrderRemoveButton>
+            <OrderRemoveButton onClick={() => handleRemoveOrder(name)}>
               <Trash size={16} /> Remover
             </OrderRemoveButton>
           </OrderActions>
@@ -27,7 +67,7 @@ export function Order({ img, name, price, qtty }: CartType) {
       </div>
       <p>
         R${" "}
-        {price?.toLocaleString("pt-BR", {
+        {(price * qtty).toLocaleString("pt-BR", {
           style: "decimal",
           minimumFractionDigits: 2,
         })}
