@@ -1,83 +1,60 @@
-import {
-  Bank,
-  CreditCard,
-  CurrencyDollar,
-  MapPinLine,
-  Money,
-} from "@phosphor-icons/react";
-import {
-  FormAddressContainer,
-  FormOfPaymentContainer,
-  PaymentTypeSelect,
-} from "./styles";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { OrderContext } from "../../../../contexts/OrderContext";
+import * as zod from "zod";
+import { FormAddress } from "./Address";
+import { PaymentForm } from "./Payment";
+
+const deliveryAddressValidationSchema = zod.object({
+  cep: zod
+    .number({
+      required_error: "Campo CEP é obrigatório",
+      invalid_type_error: "CEP deve ser numérico",
+    })
+    .max(99999999, "Insira um cep com 8 dígitos"),
+  city: zod.string().min(1, "Campo Cidade é obrigatório"),
+  complement: zod.string().optional(),
+  district: zod.string().min(1, "Campo Bairro é obrigatório"),
+  number: zod.number({
+    required_error: "Campo Número é obrigatório",
+    invalid_type_error: "Número deve ser numérico",
+  }),
+  order: zod.string().min(4, "Você não tem um pedido para entrega"),
+  payment: zod.string({
+    required_error: "Selecione uma forma de pagamento",
+    invalid_type_error: "Selecione uma forma de pagamento",
+  }),
+  street: zod.string().min(1, "Campo Rua Obrigatório"),
+  uf: zod.string().max(2, "Insira uma UF com 2 dígitos"),
+});
 
 export function FormToDelivery() {
+  const { cart } = useContext(OrderContext);
+  const { register, handleSubmit, formState } = useForm({
+    resolver: zodResolver(deliveryAddressValidationSchema),
+  });
+
+  function handleConfirmOrder(data: any) {
+    console.log(data);
+  }
+
+  const formStateError = formState.errors;
+
+  console.log(formStateError);
+
+  let orderExist = "";
+  cart.length > 0 ? (orderExist = "true") : (orderExist = "");
+
   return (
-    <form id="formDelivery" action="">
-      <FormAddressContainer>
-        <div>
-          <MapPinLine size={22} />
-          <div>
-            <h3>Endereço de Entrega</h3>
-            <p>Informe o endereço onde deseja receber seu pedido</p>
-          </div>
-        </div>
-        <label htmlFor="cep">
-          <input type="text" id="cep" placeholder="CEP" />
-        </label>
+    <form
+      onSubmit={handleSubmit(handleConfirmOrder)}
+      id="formDelivery"
+      action=""
+    >
+      <FormAddress orderExist={orderExist} register={register} />
 
-        <label htmlFor="street">
-          <input type="text" id="street" placeholder="Rua" />
-        </label>
-
-        <div className="row3">
-          <label htmlFor="number">
-            <input type="text" id="number" placeholder="Número" />
-          </label>
-          <label htmlFor="complement">
-            <input type="text" id="complement" placeholder="Complemento" />
-          </label>
-        </div>
-
-        <div className="row4">
-          <label htmlFor="district">
-            <input type="text" id="district" placeholder="Bairro" />
-          </label>
-          <label htmlFor="city">
-            <input type="text" id="city" placeholder="Cidade" />
-          </label>
-          <label htmlFor="uf">
-            <input type="text" id="uf" placeholder="UF" />
-          </label>
-        </div>
-      </FormAddressContainer>
-      <FormOfPaymentContainer>
-        <div>
-          <CurrencyDollar size={22} />
-          <div>
-            <h3>Pagamento</h3>
-            <p>
-              O pagamento é feito na entrega. Escolha a forma que deseja pagar
-            </p>
-          </div>
-        </div>
-        <PaymentTypeSelect>
-          <label htmlFor="payment">
-            <label htmlFor="creditCard">
-              <CreditCard size={16} /> Cartão de Crédito
-              <input type="radio" name="payment" id="creditCard" />
-            </label>
-            <label htmlFor="debitCard">
-              <Bank size={16} /> Cartão de Débito
-              <input type="radio" name="payment" id="debitCard" />
-            </label>
-            <label htmlFor="cash">
-              <Money size={16} /> Dinheiro
-              <input type="radio" name="payment" id="cash" />
-            </label>
-          </label>
-        </PaymentTypeSelect>
-      </FormOfPaymentContainer>
+      <PaymentForm register={register} />
     </form>
   );
 }
