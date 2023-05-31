@@ -13,7 +13,7 @@ export function OrderCard() {
   function getTotalValue(itens?: string) {
     let totalItemsValue = 0;
     cart.map((item) => {
-      totalItemsValue += item.price * item.qtty!;
+      totalItemsValue += item.price * Number(item.qtty);
     });
     if (itens) {
       return totalItemsValue.toLocaleString("pt-BR", {
@@ -70,7 +70,7 @@ export function OrderCard() {
         </p>
       </OrderCardTotal>
       <NavLink className="link" to={"/success"}>
-        <button type="submit">Confirmar pedido</button>
+        <button form="formDelivery" type="submit">Confirmar pedido</button>
       </NavLink>
     </OrderCardContainer>
   );
