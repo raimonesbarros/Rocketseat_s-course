@@ -42,7 +42,7 @@ export const ViewerDeliveryInfo = styled.div`
     max-width: 30rem;
     flex-direction: column-reverse;
   }
-`
+`;
 
 export const BorderGradient = styled.div`
   width: 100%;
@@ -55,8 +55,7 @@ export const BorderGradient = styled.div`
 
   border-radius: 6px 36px;
   margin: 1rem 2.875rem;
-
-`
+`;
 
 export const InfoCardDelivery = styled.div`
   margin: 2px 2px;
@@ -70,17 +69,16 @@ export const InfoCardDelivery = styled.div`
   border-radius: 6px 36px;
   background: ${(props) => props.theme.base100};
 
-  .addressInfo,
-  .timerInfo,
-  .paymentInfo {
+  > div {
     display: flex;
     align-items: center;
     width: 100%;
     gap: 0.75rem;
 
-    span {
+    > span {
       width: 2rem;
       height: 2rem;
+      flex-shrink: 0;
 
       display: flex;
       justify-content: center;
@@ -92,20 +90,22 @@ export const InfoCardDelivery = styled.div`
 
     p {
       color: ${(props) => props.theme.base700};
-
+      > span {
+        display: block;
+      }
       strong {
         font-weight: 700;
       }
     }
   }
 
-  .addressInfo span {
+  .addressInfo > span {
     background: ${(props) => props.theme.primary};
   }
-  .timerInfo span {
+  .timerInfo > span {
     background: ${(props) => props.theme.secondary};
   }
-  .paymentInfo span {
+  .paymentInfo > span {
     background: ${(props) => props.theme.secondary_dark};
   }
-`
+`;

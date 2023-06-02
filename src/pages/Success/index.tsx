@@ -8,6 +8,8 @@ import illustration from "../../assets/Illustration.svg";
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 
 export function Success() {
+  const dataStorage = localStorage.getItem("@coffeeDelivery1.0.0");
+  const dataLiteral = dataStorage ? JSON.parse(dataStorage) : {};
   return (
     <SuccessContainer>
       <div>
@@ -23,8 +25,16 @@ export function Success() {
                   <MapPin size={16} weight="fill" />
                 </span>
                 <p>
-                  Entrega em <strong>Rua Joao Daniel, 102</strong>
-                  <p>Farrapos - Porto Alegre, RS</p>
+                  Entrega em{" "}
+                  <strong>
+                    {dataLiteral && dataLiteral.street},{" "}
+                    {dataLiteral && dataLiteral.number}
+                  </strong>
+                  <span>
+                    {dataLiteral && dataLiteral.district} -{" "}
+                    {dataLiteral && dataLiteral.city},{" "}
+                    {dataLiteral && dataLiteral.uf}
+                  </span>
                 </p>
               </div>
               <div className="timerInfo">
@@ -33,9 +43,9 @@ export function Success() {
                 </span>
                 <p>
                   Previsão de entrega
-                  <p>
+                  <span>
                     <strong>20 min - 30 min</strong>
-                  </p>
+                  </span>
                 </p>
               </div>
               <div className="paymentInfo">
@@ -44,9 +54,9 @@ export function Success() {
                 </span>
                 <p>
                   Pagamento na entrega
-                  <p>
-                    <strong>Cartão de Crédito</strong>
-                  </p>
+                  <span>
+                    <strong>{dataLiteral && dataLiteral.payment}</strong>
+                  </span>
                 </p>
               </div>
             </InfoCardDelivery>
