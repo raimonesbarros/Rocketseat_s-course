@@ -1,12 +1,12 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from "@phosphor-icons/react";
 import { FormOfPaymentContainer, PaymentTypeSelect } from "./Payment.styles";
-import { UseFormRegister, FieldValues } from "react-hook-form";
+import { useContext } from "react";
+import { DeliveryContext } from "../../../../contexts/DeliveryContext";
 
-interface PaymentFormProps {
-  register: UseFormRegister<FieldValues>;
-}
+export function PaymentForm() {
+  const { formStateError, orderNotExist, register } =
+    useContext(DeliveryContext);
 
-export function PaymentForm({ register }: PaymentFormProps) {
   return (
     <FormOfPaymentContainer>
       <div>
@@ -26,6 +26,7 @@ export function PaymentForm({ register }: PaymentFormProps) {
               type="radio"
               id="creditCard"
               value="Cartão de crédito"
+              disabled={orderNotExist}
               {...register("payment")}
             />
           </label>
@@ -35,6 +36,7 @@ export function PaymentForm({ register }: PaymentFormProps) {
               type="radio"
               id="debitCard"
               value="Cartão de débito"
+              disabled={orderNotExist}
               {...register("payment")}
             />
           </label>
@@ -44,9 +46,13 @@ export function PaymentForm({ register }: PaymentFormProps) {
               type="radio"
               id="cash"
               value="Dinheiro"
+              disabled={orderNotExist}
               {...register("payment")}
             />
           </label>
+          <span>
+            {formStateError.payment && String(formStateError.payment?.message)}
+          </span>
         </label>
       </PaymentTypeSelect>
     </FormOfPaymentContainer>

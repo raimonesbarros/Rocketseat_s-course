@@ -4,9 +4,11 @@ import { NavLink } from "react-router-dom";
 import { Order } from "./Order";
 import { OrderCardContainer, OrderCardTotal } from "./styles";
 import { v4 as uuidv4 } from "uuid";
+import { DeliveryContext } from "../../../../contexts/DeliveryContext";
 
 export function OrderCard() {
   const { cart, setCart } = useContext(OrderContext);
+  const { orderNotExist, submitting } = useContext(DeliveryContext);
 
   const deliveryValue = 3.5;
 
@@ -69,9 +71,14 @@ export function OrderCard() {
           <strong>R$ {cart.length > 0 ? getTotalValue() : "0,00"}</strong>
         </p>
       </OrderCardTotal>
-      <NavLink className="link" to={"/success"}>
-        <button form="formDelivery" type="submit">Confirmar pedido</button>
-      </NavLink>
+      <NavLink className="link" to={"/success"}></NavLink>
+      <button
+        form="formDelivery"
+        disabled={submitting || orderNotExist}
+        type="submit"
+      >
+        Confirmar pedido
+      </button>
     </OrderCardContainer>
   );
 }
