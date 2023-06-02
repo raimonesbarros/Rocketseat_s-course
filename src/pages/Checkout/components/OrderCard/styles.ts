@@ -37,6 +37,11 @@ export const OrderCardContainer = styled.div`
     color: ${(props) => props.theme.white};
 
     cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 `;
 

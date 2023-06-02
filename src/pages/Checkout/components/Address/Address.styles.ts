@@ -51,6 +51,10 @@ export const FormAddressContainer = styled.div`
     }
   }
 
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   label[for="cep"],
   label[for="number"],
   label[for="district"] {
@@ -71,6 +75,12 @@ export const FormAddressContainer = styled.div`
 
   label[for="uf"] {
     width: 10.714%;
+  }
+
+  label span {
+    font-size: 0.875rem;
+    padding-left: 0.2rem;
+    color: #d00;
   }
 
   > div {

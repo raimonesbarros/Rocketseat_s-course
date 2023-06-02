@@ -76,6 +76,20 @@ export const PaymentTypeSelect = styled.section`
         background: ${(props) => props.theme.primary_light};
         border: 1px solid ${(props) => props.theme.primary};
       }
+
+      &:has(:disabled) {
+        opacity: 0.7;
+        cursor: not-allowed;
+        &:hover {
+          background: ${(props) => props.theme.base400};
+        }
+      }
+    }
+
+    > span {
+      font-size: 0.875rem;
+      padding-left: 0.2rem;
+      color: #d00;
     }
   }
 `;
